@@ -3,12 +3,16 @@
 nest new landda-api
 - pnpm
 
-# @nestjs/apollo for ApolloDriver, ApolloDriverConfig
+# ApolloDriver, ApolloDriverConfig
 pnpm i @nestjs/graphql @nestjs/apollo graphql apollo-server-express
+
+# mongodb
+pnpm i @nestjs/mongoose mongoose
+
+pnpm install dotenv
 
 # pnpm install graphql @nestjs/graphql @nestjs/mongoose mongoose
 
-# pnpm install dotenv
 
 ```
 
