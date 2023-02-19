@@ -1,25 +1,27 @@
-# Q1-DEV-GraphQL
-Dev &amp; Try 🎲
+### Environment
+```bash
+nest new landda-api
+- pnpm
 
+# @nestjs/apollo for ApolloDriver, ApolloDriverConfig
+pnpm i @nestjs/graphql @nestjs/apollo graphql apollo-server-express
 
-<!-- o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o  -->
+# pnpm install graphql @nestjs/graphql @nestjs/mongoose mongoose
 
+# pnpm install dotenv
 
-## 🎃 Plan
-- client -> react ? , nextJS ? 
-- clientAPI -> ???
+```
 
-- server -> graphql only
-- database -> 
+### crreate module
+```bash
+# cd /src 
+nest g module blogs
+nest g service blogs
+nest g resolver blogs
+```
 
-<!-- o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o o-o  -->
+### Schema 
 
+Estate
 
-## 🎃 Schema Database
-
-- 🎲 | 🟡 | Register -> User 
-- 🎲 | 🟡 | Login -> User
-
-- 🎲 | 🟡 | User -> id , name , email
-- 🎲 | 🟡 | Post -> Title , Details , CommnetPost
-- 🎲 | 🟡 | CommentPost -> User -> Message
+Blog
