@@ -17,13 +17,26 @@ scalar DateTime
 
 type Query {
   blogs: [Blog!]!
+  blog(input: FindBlogInput!): Blog!
+}
+
+input FindBlogInput {
+  _id: String!
 }
 
 type Mutation {
   createBlog(createBlogInput: CreateBlogInput!): Blog!
+  updateBlog(updateBlogInput: UpdateBlogInput!): Blog!
+  deleteBlog(id: String!): Boolean!
 }
 
 input CreateBlogInput {
   title: String!
   content: String!
+}
+
+input UpdateBlogInput {
+  id: ID!
+  title: String
+  content: String
 }
