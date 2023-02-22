@@ -12,10 +12,10 @@ config(); // Load .env file
 
 @Module({
   imports: [
-    MongooseModule.forRoot(process.env.MONGO_URI),
+    MongooseModule.forRoot(process.env.MONGO_URI_DEV),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      autoSchemaFile: 'schema.gql',
+      autoSchemaFile: 'src/generate/schema.gql',
     }),
     BlogsModule],
   controllers: [AppController],

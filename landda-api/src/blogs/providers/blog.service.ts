@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { Blog, BlogDocument } from "./entities/blog.entity";
+import { Blog, BlogDocument } from "../models/blog.model";
 // mongodb
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";

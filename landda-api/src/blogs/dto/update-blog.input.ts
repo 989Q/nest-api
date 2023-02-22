@@ -1,4 +1,4 @@
-import { CreateBlogInput } from './create-blog.dto';
+import { CreateBlogInput } from './create-blog.input';
 import { InputType, Field, ID } from '@nestjs/graphql';
 
 @InputType()

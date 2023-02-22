@@ -1,12 +1,14 @@
 import { Args, Int, Mutation, Query, Resolver } from "@nestjs/graphql";
-import { BlogService } from "./blog.service";
-import { Blog } from "./entities/blog.entity";
-
-import { CreateBlogInput } from "./dto/create-blog.dto";
-import { FindBlogInput } from "./dto/find-blog.input";
-import { UpdateBlogInput } from "./dto/update-blog.input";
-
 import { NotFoundException } from "@nestjs/common";
+
+import { Blog } from "../models/blog.model";
+import { BlogService } from "../providers";
+
+import { CreateBlogInput, UpdateBlogInput, FindBlogInput } from "../dto";
+
+// import { CreateBlogInput } from "./dto/create-blog.dto";
+// import { FindBlogInput } from "./dto/find-blog.input";
+// import { UpdateBlogInput } from "./dto/update-blog.input";
 
 @Resolver(() => Blog)
 export class BlogResolver {
