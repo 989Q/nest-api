@@ -15,12 +15,45 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
+type Location {
+  address: String!
+  subdistrict: String!
+  district: String!
+  province: String!
+  postcode: String!
+  country: String!
+}
+
+type Estate {
+  _id: ID!
+  property_type: String!
+  property_status: String!
+  post_status: String!
+  title: String!
+  description: String!
+  location: Location!
+  price: Float!
+  bedrooms: Float!
+  bathrooms: Float!
+  parking: Float!
+  size: Float!
+  images: [String!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
 type Query {
   blogs: [Blog!]!
   blog(input: FindBlogInput!): Blog!
+  estates: [Estate!]!
+  estate(input: FindEstateInput!): Estate!
 }
 
 input FindBlogInput {
+  _id: String!
+}
+
+input FindEstateInput {
   _id: String!
 }
 
@@ -28,6 +61,7 @@ type Mutation {
   createBlog(createBlogInput: CreateBlogInput!): Blog!
   updateBlog(updateBlogInput: UpdateBlogInput!): Blog!
   deleteBlog(id: String!): Boolean!
+  createEstate(createEstateInput: CreateEstateInput!): Estate!
 }
 
 input CreateBlogInput {
@@ -39,4 +73,28 @@ input UpdateBlogInput {
   id: ID!
   title: String
   content: String
+}
+
+input CreateEstateInput {
+  property_type: String!
+  property_status: String!
+  post_status: String!
+  title: String!
+  description: String!
+  location: LocationInput!
+  price: Float!
+  bedrooms: Float!
+  bathrooms: Float!
+  parking: Float!
+  size: Float!
+  images: [String!]!
+}
+
+input LocationInput {
+  address: String!
+  subdistrict: String!
+  district: String!
+  province: String!
+  postcode: String!
+  country: String!
 }

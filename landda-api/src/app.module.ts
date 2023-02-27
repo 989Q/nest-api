@@ -8,6 +8,7 @@ import { BlogsModule } from './blogs/blog.module';
 import { MongooseModule } from '@nestjs/mongoose';
 
 import { config } from 'dotenv';
+import { EstateModule } from './estate/estate.module';
 config(); // Load .env file
 
 @Module({
@@ -17,7 +18,8 @@ config(); // Load .env file
       driver: ApolloDriver,
       autoSchemaFile: 'src/generate/schema.gql',
     }),
-    BlogsModule],
+    BlogsModule,
+    EstateModule],
   controllers: [AppController],
   providers: [AppService],
 })

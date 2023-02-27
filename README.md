@@ -11,9 +11,8 @@ pnpm i @nestjs/mongoose mongoose
 
 pnpm install dotenv
 
+# past
 # pnpm install graphql @nestjs/graphql @nestjs/mongoose mongoose
-
-
 ```
 
 ### crreate module
@@ -22,6 +21,10 @@ pnpm install dotenv
 nest g module blogs
 nest g service blogs
 nest g resolver blogs
+
+nest g module estate
+nest g service estate
+nest g resolver estate
 ```
 
 ### Schema 
