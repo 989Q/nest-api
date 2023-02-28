@@ -7,9 +7,8 @@ nest new landda-api
 pnpm i @nestjs/graphql @nestjs/apollo graphql apollo-server-express
 
 # mongodb
+# last
 pnpm i @nestjs/mongoose mongoose
-
-pnpm install dotenv
 
 # past
 # pnpm install graphql @nestjs/graphql @nestjs/mongoose mongoose
