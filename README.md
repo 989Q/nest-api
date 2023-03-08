@@ -1,2 +1,9 @@
-# Q1-DEV-GraphQL
-Dev &amp; Try 🎲
+### env
+```bash
+# craete new app
+nest new landda-api
+- pnpm
+
+# mongodb
+
+```
