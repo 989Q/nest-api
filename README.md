@@ -1,9 +1,8 @@
-# nestjs-project-structure
+## nest-api
 
 Node.js framework NestJS project structure
-> Started from this issue: [nestjs/nest#2249](https://github.com/nestjs/nest/issues/2249#issuecomment-494734673)
 
-## Configuration
+### Configuration
 
 1. Create a `.env` file
     - Rename the [.env.sample](.env.sample) file to `.env` to fix it.
@@ -11,46 +10,46 @@ Node.js framework NestJS project structure
     - Edit the file in the [config](src/config) folder.
     - `default`, `development`, `production`, `test`
 
-## Installation
+### Installation
 
 ```sh
 # 1. node_modules
-npm ci
+pnpm ci
 # 1-1. npm < v7 or Node.js <= v14
-npm i
+pnpm i
 # 2. When synchronize database from existing entities
-npm run entity:sync
+pnpm run entity:sync
 # 2-1. When import entities from an existing database
-npm run entity:load
+pnpm run entity:load
 ```
 
 If you use multiple databases in `entity:load`, [modify them.](bin/entity.ts#L45)
 
-## Development
+### Development
 
 ```sh
-npm run start:dev
+npm run dev
 # https://docs.nestjs.com/recipes/repl
 npm run start:repl
 ```
 
-Run [http://localhost:3000](http://localhost:3000)
+Run [http://localhost:5000](http://localhost:5000)
 
-## Test
+### Test
 
 ```sh
-npm test # exclude e2e
-npm run test:e2e
+pnpm test # exclude e2e
+pnpm run test:e2e
 ```
 
-## Production
+### Production
 
 ```sh
-npm run lint
-npm run build
+pnpm run lint
+pnpm run build
 # define environment variable yourself.
 # NODE_ENV=production PORT=8000 NO_COLOR=true node dist/app
 node dist/app
 # OR
-npm start
+pnpm start
 ```
