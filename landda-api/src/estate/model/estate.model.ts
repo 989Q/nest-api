@@ -5,9 +5,9 @@ export type EstateDocument = Estate & Document;
 
 @Schema()
 export class Estate {
-  @Prop({ required: true, unique: true })
-  estate_id: number;
-
+  // @Prop({ required: true, unique: true })
+  // estate_id: number;
+  
   @Prop({ required: true })
   property_type: string;
 
@@ -23,15 +23,19 @@ export class Estate {
   @Prop({ required: true })
   description: string;
 
-  // @Prop({ required: true })
-  // location: {
-  //   address: string;
-  //   subdistrict: string;
-  //   district: string;
-  //   province: string;
-  //   postcode: string;
-  //   country: string;
-  // };
+  @Prop({
+    required: true,
+    type: Map,
+    of: String,
+  })
+  location: {
+    address: string;
+    subdistrict: string;
+    district: string;
+    province: string;
+    postcode: string;
+    country: string;
+  };
 
   @Prop({ required: true })
   price: number;
