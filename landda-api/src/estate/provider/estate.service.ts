@@ -61,4 +61,11 @@ export class EstateService {
     return estate;
   }
 
+  async findOneByTitle(title: string): Promise<Estate> {
+    const estate = await this.estateModel.findOne({ title }).exec();
+    if (!estate) {
+      throw new NotFoundException(`Estate with title ${title} not found`);
+    }
+    return estate;
+  }
 }

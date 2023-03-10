@@ -36,4 +36,9 @@ export class EstateController {
   async findById(@Param("id") id: string): Promise<Estate> {
     return this.estateService.findById(id);
   }
+
+  @Get(":title")
+  async findOneByTitle(@Param("title") title: string): Promise<Estate> {
+    return this.estateService.findOneByTitle(title);
+  }
 }

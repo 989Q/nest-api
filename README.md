@@ -6,6 +6,9 @@ nest new landda-api
 
 # mongodb
 pnpm i @nestjs/mongoose mongoose
+
+# cors
+pnpm i cors
 ```
 
 ### create module
