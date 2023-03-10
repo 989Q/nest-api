@@ -1,4 +1,4 @@
-import { MONGO_URI_DEV } from "./uri";
+import { MONGO_URI_DEV } from "uri";
 
 // config/development.ts
 export default {
