@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Put } from "@nestjs/common";
+import { Controller, Get, Post, Body, Param, Put, Query } from "@nestjs/common";
 import { EstateService } from "../provider";
 import { CreateEstateDto } from "../dto";
 import { Estate } from "../model/estate.model";
@@ -22,9 +22,14 @@ export class EstateController {
 
   // ____________________________________ Get ____________________________________
 
+  //   @Get()
+  //   async findAll(): Promise<Estate[]> {
+  //     return this.estateService.findAll();
+  //   }
+
   @Get()
-  async findAll(): Promise<Estate[]> {
-    return this.estateService.findAll();
+  findAll(@Query() queryParams): Promise<Estate[]> {
+    return this.estateService.findAll(queryParams);
   }
 
   @Get(":id")

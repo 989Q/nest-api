@@ -20,16 +20,6 @@ export class EstateService {
     return createdEstate.save();
   }
 
-  // async update(id: string, updateEstateDto: CreateEstateDto): Promise<Estate> {
-  //   const updatedEstate = await this.estateModel
-  //     .findByIdAndUpdate(id, updateEstateDto, { new: true })
-  //     .exec();
-  //   if (!updatedEstate) {
-  //     throw new NotFoundException(`Estate with id ${id} not found`);
-  //   }
-  //   return updatedEstate;
-  // }
-
   async update(id: string, updateEstateDto: CreateEstateDto): Promise<Estate> {
     const estate = await this.estateModel
       .findByIdAndUpdate(id, updateEstateDto, { new: true })
@@ -45,8 +35,22 @@ export class EstateService {
 
   // ____________________________________ Get ____________________________________
 
-  async findAll(): Promise<Estate[]> {
-    return this.estateModel.find().exec();
+  // async findAll(): Promise<Estate[]> {
+  //   return this.estateModel.find().exec();
+  // }
+
+  async findAll(queryParams): Promise<Estate[]> {
+    const filter = {};
+
+    if (queryParams.title) {
+      filter['title'] = { $regex: queryParams.title, $options: 'i' };
+    }
+
+    if (queryParams.type) {
+      filter['property_type'] = queryParams.type;
+    }
+
+    return this.estateModel.find(filter).exec();
   }
 
   async findById(id: string): Promise<Estate> {
