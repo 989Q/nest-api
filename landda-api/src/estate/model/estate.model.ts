@@ -5,8 +5,9 @@ export type EstateDocument = Estate & Document;
 
 @Schema()
 export class Estate {
-  // @Prop({ required: true, unique: true })
+  @Prop({ required: true, unique: true })
   // estate_id: number;
+  estate_id: string;
   
   @Prop({ required: true })
   property_type: string;
