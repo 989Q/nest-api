@@ -61,13 +61,13 @@ export class EstateService {
     return this.estateModel.find(filter).exec();
   }
 
-  async findById(id: string): Promise<Estate> {
-    const estate = await this.estateModel.findById(id).exec();
-    if (!estate) {
-      throw new NotFoundException('not found');
-    }
-    return estate;
-  }
+  // async findById(id: string): Promise<Estate> {
+  //   const estate = await this.estateModel.findById(id).exec();
+  //   if (!estate) {
+  //     throw new NotFoundException('not found');
+  //   }
+  //   return estate;
+  // }
 
   // async findOneByTitle(title: string): Promise<Estate> {
   //   const estate = await this.estateModel.findOne({ title }).exec();
@@ -75,5 +75,17 @@ export class EstateService {
   //     throw new NotFoundException(`Estate with title ${title} not found`);
   //   }
   //   return estate;
+  // }
+
+  async findOneByEstate_id(estate_id: string): Promise<Estate> {
+    const estate = await this.estateModel.findOne({ estate_id }).exec();
+    if (!estate) {
+      throw new NotFoundException(`Estate with estate_id ${estate_id} not found`);
+    }
+    return estate;
+  }
+
+  // async findOneById(id: string): Promise<Estate> {
+  //   return this.estateModel.findOne({ estate_id: id }).exec();
   // }
 }
