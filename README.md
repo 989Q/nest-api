@@ -1,3 +1,16 @@
+## branches 🦋
+
+### G-Auth
+Doing... nextJS and NestJS connect with gamil
+
+### rest
+@nestjs/mongoose mongoose
+
+### apollo
+@nestjs/graphql @nestjs/apollo graphql apollo-server-express
+
+@nestjs/mongoose mongoose
+
 ## nest-api
 
 Node.js framework NestJS project structure
