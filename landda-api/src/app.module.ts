@@ -4,13 +4,17 @@ import { AppService } from './app.service';
 
 // mongodb
 import { MongooseModule } from '@nestjs/mongoose';
-import { EstateModule } from './estate/Estate.module';
 import configuration from './config/configuration';
+
+// part
+import { EstateModule } from './estate/Estate.module';
+import { EstateAgnetModule } from './estateAgent/estateAgnet.module';
 
 @Module({
   imports: [
     MongooseModule.forRoot(configuration.mongoUri), 
-    EstateModule
+    EstateModule,
+    EstateAgnetModule,
   ],
   controllers: [AppController],
   providers: [AppService],
