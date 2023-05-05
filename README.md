@@ -1,9 +1,7 @@
 ## branches 🦋
 
 ### rest-dev
-Doing... nextJS and NestJS connect with gamil
-- google authentication
-- nestJS structure
+nestJS structure & google gmail authentication
 
 ### rest
 @nestjs/mongoose mongoose
