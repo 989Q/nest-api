@@ -26,6 +26,7 @@
     "@nestjs/mongoose": "^9.2.1",
     "@nestjs/platform-express": "^9.0.0",
     "cors": "^2.8.5",
+    "google-auth-library": "^8.8.0",
     "mongoose": "^7.0.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",

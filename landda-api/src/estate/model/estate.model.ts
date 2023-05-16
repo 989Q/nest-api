@@ -1,12 +1,12 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import mongoose, { Document } from "mongoose";
+import { EstateAgent } from 'src/estateAgent/model/testUser.model';
 
 export type EstateDocument = Estate & Document;
 
 @Schema()
 export class Estate {
   @Prop({ required: true, unique: true })
-  // estate_id: number;
   estate_id: string;
   
   @Prop({ required: true })
@@ -33,7 +33,7 @@ export class Estate {
     address: string;
     subdistrict: string;
     district: string;
-    province: string;
+    province: string
     postcode: string;
     country: string;
   };
@@ -53,6 +53,22 @@ export class Estate {
   @Prop({ required: true })
   size: number;
 
+  // __________________ Property highlights 
+
+  @Prop({ required: true })
+  facilities: string[];
+
+  @Prop({ required: true })
+  comforts: string[];
+
+  @Prop({ required: true })
+  securityAndPrivacy: string[];
+
+  // __________________ Property System 
+
+  @Prop({ required: true })
+  googleMapsLink: string[];
+
   @Prop({ type: [String], required: true })
   images: string[];
 
@@ -61,6 +77,9 @@ export class Estate {
 
   @Prop({ required: true })
   updatedAt: Date;
+
+  @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: "EstateAgent" }] })
+  estateAgent: EstateAgent[];
 }
 
 export const EstateSchema = SchemaFactory.createForClass(Estate);
