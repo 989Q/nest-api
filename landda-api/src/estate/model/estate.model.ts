@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { Document } from "mongoose";
-import { EstateAgent } from 'src/estateAgent/model/testUser.model';
+import { EstateAgent } from 'src/estateAgent/model/estateAgent.model';
 
 export type EstateDocument = Estate & Document;
 
@@ -78,8 +78,8 @@ export class Estate {
   @Prop({ required: true })
   updatedAt: Date;
 
-  @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: "EstateAgent" }] })
-  estateAgent: EstateAgent[];
+  // @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: "EstateAgent" }] })
+  // estateAgent: EstateAgent[];
 }
 
 export const EstateSchema = SchemaFactory.createForClass(Estate);

@@ -1,10 +1,10 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
-import { EstateAgent, EstateAgentDocument } from "../model/testUser.model";
+import { EstateAgent, EstateAgentDocument } from "../model/estateAgent.model";
 // import { CreateEstateDto } from '../dto';
 
-import { generateUniqueId } from "../../function/id-generator";
+import { generateUniqueUserId } from "../../function/id-generator";
 
 @Injectable()
 export class EstateAgentService {
@@ -28,7 +28,9 @@ export class EstateAgentService {
       email: email,
     });
     if (!userExists) {
+      const user_id = generateUniqueUserId();
       const createUser = new this.estateAgnetModel({
+        user_id,
         email,
         name,
         image,

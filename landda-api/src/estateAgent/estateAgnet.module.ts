@@ -1,6 +1,6 @@
 import { Module } from "@nestjs/common";
 import { MongooseModule } from "@nestjs/mongoose";
-import { EstateAgent, EstateAgentSchema } from "./model/testUser.model";
+import { EstateAgent, EstateAgentSchema } from "./model/estateAgent.model";
 import { EstateAgentService } from "./provider";
 import { EstateAgentController } from "./controller";
 
