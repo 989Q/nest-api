@@ -1,3 +1,5 @@
+// create estateAgent.service.ts
+
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
@@ -6,6 +8,8 @@ import { EstateAgent, EstateAgentDocument } from "../model/estateAgent.model";
 
 import { generateUniqueUserId } from "../../function/id-generator";
 
+import { sign } from 'jsonwebtoken';
+
 @Injectable()
 export class EstateAgentService {
   constructor(
@@ -13,7 +17,7 @@ export class EstateAgentService {
     private estateAgnetModel: Model<EstateAgentDocument>
   ) {}
 
-  // ____________________________________ Create ____________________________________
+  // ____________________________________ Create 
 
   async login({
     email,
@@ -36,11 +40,24 @@ export class EstateAgentService {
         image,
       });
       await createUser.save();
-      return createUser;
+
+      const token = this.generateToken(user_id, email, name, image) 
+
+      return { createUser, token};
     } else {
-      return userExists;
+      const token = this.generateToken(userExists.user_id, email, name, image); 
+
+      return { user: userExists, token }; // Return user and token
     }
   }
 
-  // ____________________________________ Get ____________________________________
+  // ____________________________________ JWT 
+
+  private generateToken(user_id: string, email: string, name: string, image: string): string {
+    const payload = { user_id, email, name, image };
+    const secretKey = 'your_secret_key'; // Replace with your secret key
+    const options = { expiresIn: '24h' }; // Set token expiration time (e.g., 24 hour)
+
+    return sign(payload, secretKey, options);
+  }
 }
