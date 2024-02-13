@@ -1,5 +1,3 @@
-// create estateAgent.controller.ts
-
 import { Controller, Get, Post, Body, Param, Put, Query } from "@nestjs/common";
 import { EstateAgentService } from "../provider/estateAgent.service";
 
